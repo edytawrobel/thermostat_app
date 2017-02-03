@@ -26,6 +26,120 @@ body {
   margin-top: 15px;
 }
 
+#current-city {
+    /* Size and position */
+    border: 1px solid #464343;
+    position: relative; /* Enable absolute positionning for children and pseudo elements */
+    width: 100px;
+    left: 25%;
+    margin: 0 auto;
+    padding: 10px 15px;
+
+    /* Styles */
+    background: wheat;
+    border-left: 5px solid grey;
+    cursor: pointer;
+    outline: none;
+}
+
+#current-city:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: grey transparent;
+}
+
+#current-city .dropdown {
+  /* Size & position */
+    position: absolute;
+    top: 100%;
+    left: -5px;
+    right: 0px;
+
+    /* Styles */
+    background: white;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    list-style: none;
+
+    /* Hiding */
+    opacity: 0;
+    pointer-events: none;
+}
+
+#current-city .dropdown li a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    border-left: 5px solid;
+    padding: 10px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+#current-city .dropdown li:nth-child(1) a {
+    border-left-color: #00ACED;
+}
+
+#current-city .dropdown li:nth-child(2) a {
+    border-left-color: #4183C4;
+}
+
+#current-city .dropdown li:nth-child(3) a {
+    border-left-color: #3B5998;
+}
+
+#current-city .dropdown li i {
+    margin-right: 5px;
+    color: inherit;
+    vertical-align: middle;
+}
+
+/* Hover state */
+
+#current-city .dropdown li:hover a {
+    color: grey;
+}
+
+/* Active state */
+
+#current-city.active:after {
+    border-width: 0 6px 6px 6px;
+}
+
+#current-city.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* No CSS3 support */
+
+.no-opacity       #current-city .dropdown,
+.no-pointerevents #current-city .dropdown {
+    display: none;
+    opacity: 1; /* If opacity support but no pointer-events support */
+    pointer-events: auto; /* If pointer-events support but no pointer-events support */
+}
+
+.no-opacity       #current-city.active .dropdown,
+.no-pointerevents #current-city.active .dropdown {
+    display: block;
+}
+
+
+
 .top {
   width: 100%;
   margin: 0;
